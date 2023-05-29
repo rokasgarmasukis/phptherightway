@@ -1,0 +1,1 @@
+INSERT INTO invoices (amount, user_id) VALUES (25, 1), (115.95, 1), (24, 2);

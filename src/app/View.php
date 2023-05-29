@@ -15,13 +15,17 @@ class View
     return new static($view, $params);
   }
 
-  public function render(): string
+  public function render(bool $withLayout = false): string
   {
+    // TODO: Add layout support
+
     $viewPath = VIEW_PATH . '/' . $this->view . '.php';
 
     if (!file_exists($viewPath)) {
       throw new ViewNotFoundException();
     }
+
+    extract($this->params);
 
     ob_start();
     include $viewPath;

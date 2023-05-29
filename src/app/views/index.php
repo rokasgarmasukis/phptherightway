@@ -1,3 +1,5 @@
+<h1><?php echo $foo ?></h1>
+
 <form action="upload" method="post" enctype="multipart/form-data">
   <label for="receipt"></label>
   <input type="file" name="receipt" id="receipt">

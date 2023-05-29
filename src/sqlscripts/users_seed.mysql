@@ -1,0 +1,5 @@
+USE my_db;
+
+INSERT INTO users (email, full_name, is_active, created_at) VALUES 
+("rokas@gmail.com", "rokas garmasukis", 1, NOW()),
+("john@gmail.com", "john smith", 1, NOW());

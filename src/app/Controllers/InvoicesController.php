@@ -8,7 +8,7 @@ class InvoicesController
 {
   public function index(): View
   {
-    return  View::make('invoices/index');
+    return View::make('invoices/index');
   }
 
   public function create(): View
