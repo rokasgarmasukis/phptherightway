@@ -4,6 +4,10 @@ namespace App;
 
 use PDO;
 
+/**
+ * @mixin PDO
+ */
+
 class DB
 {
 

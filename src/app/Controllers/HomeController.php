@@ -2,29 +2,35 @@
 
 namespace App\Controllers;
 
-use App\App;
 use App\View;
+use App\Models\User;
+use App\Models\SignUp;
+use App\Models\Invoice;
 
 class HomeController
 {
   public function index(): View
   {
-
     // $_SESSION['count'] = ($_SESSION['count'] ?? 0) + 1;
 
-    $db = App::db();
+    $email = 'mai2l@hotmail.com';
+    $name = 'bongo';
+    $amount = 25;
 
-    $query = 'select * from users';
-    $stmt = $db->prepare($query);
-    $stmt->execute();
+    $userModel = new User();
+    $invoiceModel = new Invoice();
 
-    foreach ($stmt->fetchAll() as $user) {
-      echo '<pre>';
-      var_dump($user);
-      echo '</pre>';
-    }
+    $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
+      [
+        'email' => $email,
+        'name' => $name,
+      ],
+      [
+        'amount' => $amount,
+      ]
+    );
 
-    return View::make('index', ['foo' => 'bar']);
+    return View::make('index', ['invoice' => $invoiceModel->find($invoiceId)]);
   }
 
   public function about(): string
@@ -32,7 +38,8 @@ class HomeController
     return "About us";
   }
 
-  public function download() {
+  public function download()
+  {
     header('Content-Type: application/pdf');
     header('Content-Disposition: attachment;filename="cv.pdf"');
 
@@ -50,6 +57,4 @@ class HomeController
     header('Location: /');
     exit;
   }
-
-
 }
