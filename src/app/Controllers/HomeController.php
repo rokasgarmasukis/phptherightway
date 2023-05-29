@@ -13,7 +13,7 @@ class HomeController
   {
     // $_SESSION['count'] = ($_SESSION['count'] ?? 0) + 1;
 
-    $email = 'mai2l@hotmail.com';
+    $email = 'mai2lö@hotmail.com';
     $name = 'bongo';
     $amount = 25;
 
