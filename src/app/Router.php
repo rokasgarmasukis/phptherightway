@@ -52,7 +52,7 @@ class Router
 
     if (is_array($action)) {
       [$class, $method] = $action;
-      
+
       if (class_exists($class) && method_exists($class, $method)) {
         return call_user_func_array([new $class(), $method], []);
       }
